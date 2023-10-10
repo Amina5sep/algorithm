@@ -1,0 +1,43 @@
+
+*/
+Algorithm of my code 
+1.Introduce an array of 10 elements .
+2.Declare i and apply loop which iterate 10 times starting from 0 to less then 10.
+3.introduce  another variable "index" and declare its value equal to i (this will help in swaping process).
+4.Another loop with different variable i.e j.starting from i to 9. it will check all the values one by one and iterate 9 time.
+5.apply condition that if a[j] is greater then a[index] than assign index the value of j.
+6.After cooming out of a nested loop declare new variable temp equal to a[i] so value of a[i] will be saved in temp and put value of a[index] at place of a[i]
+And value of temp in a[index].
+7.After swaping you have your array sorted in descending order.
+ 
+
+/*
+#include<iostream>
+using namespace std;
+
+int main() {
+    int a[10] = {7, 6, 5, 9, 8, 4, 3, 2, 10, 3};
+
+    for (int i = 0; i < 10 - 1; i++) {                        //i=0
+        int Index = i;                                        //index=0
+        for (int j = i + 1; j < 10; j++) {                    //j=0,1,2,3       8 
+                                                              //a[j]=7,6,5,9    10
+                                                              //a[index]=7      9  condition true 
+            if (a[j] > a[Index]) {                            //condition will be true at j=3  ,j=8                   
+                Index = j;                                    // index=3 ,8
+                                                              // after that loop will work till last value and at j=8 candition will be true once again 
+                                                              // now j=8
+            }
+        }
+        int temp = a[i];                                     // temp = 7
+        a[i] = a[Index];                                     // a[0] = a[8]   , a[i]=10
+        a[Index] = temp;                                     //a[8] = temp     , a[8]=7
+                                                             // array after 1 iteration of i is {10,6,5,9,8,4,3,2,7,3}  index 0 and 8 have interchanged their values
+
+    }
+    cout << "Array in descending order: ";
+    for (int i = 0; i < 10; i++) {                         
+        cout << a[i] << " ";
+    }
+    return 0;
+}
